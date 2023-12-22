@@ -17,6 +17,8 @@ export default function Home() {
     note: "",
   });
 
+  const [notes, setNotes] = useState<Todos[]>(notesFromReducer);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, field: keyof Todos) => {
     setTodo({
       ...todo,
@@ -26,6 +28,7 @@ export default function Home() {
 
   const handleAddNote = () => {
     dispatch(setNote(todo));
+    setNotes([...notes, todo]);
     setTodo({
       name: "",
       note: "",
@@ -36,9 +39,9 @@ export default function Home() {
     <>
       <div className="max-w-96 h-screen flex flex-col justify-between bg-slate-600 m-auto  p-4">
   
-        {notesFromReducer.length > 0 && (
+        {notes.length > 0 && (
           <div className="space-y-2 h-[calc(100vh - 223px)] overflow-scroll">
-            {notesFromReducer.map((item: Todos, index: number) => (
+            {notes.map((item: Todos, index: number) => (
               <div key={index} className="w-full bg-emerald-900 space-y-4 rounded-md p-4 text-white h-auto">
                 <span>name: {item.name}</span>
                 <p>note: {item.note}</p>
@@ -59,5 +62,4 @@ export default function Home() {
       </div>
     </>
   );
-  
 }
