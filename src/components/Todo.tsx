@@ -22,8 +22,8 @@ const TodoComponent: React.FC<TodoProps> = memo(({ todo }) => {
     <div className={`flex items-center justify-between p-2 ${todo.completed ? 'line-through' : ''}`}>
       <span>{todo.text}</span>
       <div className='space-x-3'>
-        <button  onClick={handleToggle} className="bg-green-500 text-white px-2 rounded-md">
-          Complate
+        <button onClick={handleToggle} className={`${todo.completed ? 'bg-green-500' : 'bg-blue-500'} text-white px-2 rounded-md`}>
+          {todo.completed ? 'revert' : 'complete'}
         </button>
         <button className='bg-red-500 text-white px-2 rounded-md' onClick={handleDelete}>Delete</button>
       </div>
