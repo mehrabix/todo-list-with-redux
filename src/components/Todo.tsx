@@ -1,6 +1,6 @@
 import React, { useCallback, memo } from 'react';
 import { useDispatch } from 'react-redux';
-import { ITodo } from '../../types/todo';
+import { ITodo } from '../types/todo';
 import { deleteTodo, toggleTodo } from '@/store/slices/todoSlice';
 
 interface TodoProps {
