@@ -7,7 +7,7 @@ interface TodoProps {
   todo: ITodo;
 }
 
-const TodoComponent: React.FC<TodoProps> = memo(({ todo }) => {
+const Todo: React.FC<TodoProps> = memo(({ todo }) => {
   const dispatch = useDispatch();
 
   const handleToggle = useCallback(() => {
@@ -31,4 +31,4 @@ const TodoComponent: React.FC<TodoProps> = memo(({ todo }) => {
   );
 });
 
-export default TodoComponent;
+export default Todo;
