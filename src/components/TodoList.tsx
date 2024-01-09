@@ -8,8 +8,11 @@ const TodoList: React.FC = () => {
   const [sortByCompleted, setSortByCompleted] = useState<boolean>(false);
 
   const sortedTodos = useMemo(() => {
-    const sorted = [...todos].sort((a, b) => (a.completed === b.completed ? 0 : a.completed ? -1 : 1));
-    return sorted;
+    if (sortByCompleted) {
+      return [...todos].sort((a, b) => (a.completed === b.completed ? 0 : a.completed ? -1 : 1));
+    } else {
+      return [...todos].sort((a, b) => a.createdAt - b.createdAt);
+    }
   }, [todos, sortByCompleted]);
 
   return (
