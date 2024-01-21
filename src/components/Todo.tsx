@@ -31,4 +31,5 @@ const Todo: React.FC<TodoProps> = memo(({ todo }) => {
   );
 });
 
+Todo.displayName = 'Todo';
 export default Todo;
